@@ -1,4 +1,120 @@
 .music-page {
-    min-height: calc(100vh - 4.3em);
+    display: flex;
+    min-height: calc(100vh - 5.22em);
     background: linear-gradient(340deg, #667eea 0%, #a572d8 100%);
+}
+
+.sidebar {
+    width: 15.625em;
+    border-right: 2px solid #1a1a1a;
+    padding: 2em 1.5em;
+}
+
+.sidebar ul {
+    list-style-type: none;
+}
+
+.music-content {
+    flex: 1;
+    padding: 2em;
+}
+
+.search-bar {
+    margin-bottom: 1.5em;
+}
+
+.search-bar input {
+    width: 100%;
+    max-width: 37.5em;
+    padding: 1em;
+    border: 2px solid #ccc;
+    border-radius: 0.5em;
+    font-size: 1em;
+    transition: border-color 0.2s;
+}
+
+.search-bar input:focus {
+    border-color: #4b5377;
+    outline: none;
+}
+
+.song-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+}
+
+.song-card {
+    display: flex;
+    align-items: center;
+    padding: 1.5em;
+    background: gray;
+    border: 1px solid #0a0a0a;
+    border-radius: 0.5em;
+    transition: all 0.2s;
+}
+
+.song-details {
+    flex: 1;
+}
+
+.song-title {
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.song-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.play-btn-card {
+    width: 3.75em;
+    height: 3.75em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s;
+    font-size: 1em;
+    border: none;
+    border-radius: 15%;
+}
+
+.play-btn-card:hover {
+    background-color: #bebebe;
+    color: rgb(57, 45, 165);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .music-page {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        text-align: center;
+        border-right: none;
+        border-bottom: 2px solid #1a1a1a;
+        padding: 1em;
+    }
+
+    .music-content {
+        padding: 1em;
+    }
+
+    .song-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .song-icon {
+        width: 5em;
+        height: 5em;
+    }
 }

@@ -6,7 +6,7 @@
     border-radius: 1em;
     padding: 1em;
     z-index: 1000;
-    background-color: rgb(66, 109, 150);
+    background: rgb(66, 109, 150);
     color: white;
     animation: slideIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55)
 }
@@ -88,7 +88,7 @@
     height: 0.3em;
     border-radius: 0.12em;
     position: relative;
-    background-color: #e0e0e0;
+    background: #e0e0e0;
     overflow: hidden;
     cursor: pointer;
     margin-bottom: 1em;
@@ -117,17 +117,44 @@
     width: 2.3em;
     height: 2.3em;
     font-size: 1.2em;
-    background-color: white;
+    background: white;
     border: 1px solid #9094a3;
     border-radius: 50%;
 }
 
 .control-btn:hover {
-    background-color: #d0d0d0;
+    background: #d0d0d0;
     border-color: #747781;
     transform: scale(1.05);
 }
 
 .control-btn:active {
     transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+    .music-player {
+        width: 20em;
+        bottom: 2em;
+        left: 1.5em;
+        right: 1.5em;
+    }
+
+    .player-title {
+        font-size: 1em;
+    }
+
+    .control-btn {
+        width: 2.5em;
+        height: 2.5em;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .music-player {
+        width: 20em;
+        bottom: 2em;
+        left: 20em;
+        right: 20em;
+    }
 }

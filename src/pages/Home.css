@@ -3,7 +3,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    min-height: calc(100vh - 4.3em);
+    min-height: calc(100vh - 5.22em);
     padding: 2em;
     background: linear-gradient(135deg, #667eea 0%, #a572d8 100%);
 }
@@ -39,4 +39,25 @@
 .hero-about {
     font-size: 1.3em;
     line-height: 1.6em;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5em;
+    }
+
+    .hero img {
+        width: 14em;
+        height: 14em;
+    }
+
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
 }
