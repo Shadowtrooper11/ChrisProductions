@@ -37,17 +37,6 @@ function Music({ onPlaySong }) {
 
     return (
         <div className="music-page">
-            <aside className="sidebar">
-                <h3>Genre|Albums</h3>
-                <ul className="album-list">
-                    {albums.map(album => (
-                        <li key ={album} className="album-item">
-                            {album}
-                        </li>
-                    ))}
-                </ul>    
-            </aside>
-            
             <main className="music-content">
                 <div className="search-bar">
                     <input 

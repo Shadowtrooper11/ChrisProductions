@@ -6,8 +6,9 @@
     z-index: 100;
     top: 0;
     padding: 1em 2em;
-    background: rgb(0, 0, 0, 0.7);
+    background: rgb(0, 0, 0, 0.9);
     color: white;
+    border-bottom: 2px solid rgba(165, 166, 167, 0.4);
 }
 
 .nav-left {

@@ -14,7 +14,7 @@
   left: -50%;
   width: 200%;
   height: 300%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #313131 0%, #1b1b1b 100%);
   transform: rotate(var(--rotation, 0deg));
   transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }

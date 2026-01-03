@@ -9,7 +9,9 @@
 
 .hero {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
     gap: 3em;
     margin-bottom: 3em;
 }
