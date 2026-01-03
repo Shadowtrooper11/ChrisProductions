@@ -1,0 +1,133 @@
+.music-player {
+    position: fixed;
+    bottom: 3em;
+    left: 97em;
+    width: 20em;
+    border-radius: 1em;
+    padding: 1em;
+    z-index: 1000;
+    background-color: rgb(66, 109, 150);
+    color: white;
+    animation: slideIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(29em);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.player-header {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 0.2em;
+    padding-bottom: 0.3em;
+}
+
+.song-icon {
+    width: 3em;
+    height: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 1.5em;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.player-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.player-title {
+    font-size: 0.85em;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player-time {
+    font-size: 0.85em;
+    color: #d0d0d0;
+    font-weight: 500;
+}
+
+.close-button {
+    width: 2em;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.close-button:hover {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 0.3em;
+    border-radius: 0.12em;
+    position: relative;
+    background-color: #e0e0e0;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 1em;
+    transition: transform 0.4s;
+}
+
+.progress-bar:hover {
+    transform: scaleY(1.5);
+    transform-origin: center;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    transition: width 0.1s linear;
+}
+
+.player-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8em;
+}
+
+.control-btn {
+    width: 2.3em;
+    height: 2.3em;
+    font-size: 1.2em;
+    background-color: white;
+    border: 1px solid #9094a3;
+    border-radius: 50%;
+}
+
+.control-btn:hover {
+    background-color: #d0d0d0;
+    border-color: #747781;
+    transform: scale(1.05);
+}
+
+.control-btn:active {
+    transform: scale(0.95);
+}

@@ -1,0 +1,4 @@
+.music-page {
+    min-height: calc(100vh - 4.3em);
+    background: linear-gradient(340deg, #667eea 0%, #a572d8 100%);
+}

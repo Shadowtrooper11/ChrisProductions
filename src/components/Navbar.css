@@ -1,0 +1,43 @@
+.navbar {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    z-index: 100;
+    top: 0;
+    padding: 1em 2em;
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.nav-right {
+    display: flex;
+    gap: 1.5em;
+    font-size: 1.3em;
+}
+
+.logo img { 
+    width: 3em;
+    height: 3em;
+    object-fit: cover;
+}
+
+.name {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.nav-right a:hover {
+    background: gray;
+}
+
+.nav-right a:active {
+    background: lightgray;
+    color: white;
+}
