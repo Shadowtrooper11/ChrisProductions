@@ -1,7 +1,6 @@
 .music-page {
     display: flex;
     min-height: calc(100vh - 5.22em);
-    background: linear-gradient(340deg, #667eea 0%, #a572d8 100%);
 }
 
 .sidebar {

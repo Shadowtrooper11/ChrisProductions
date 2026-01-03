@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import AnimatedBackground from './components/AnimatedBackground'
 import NavBar from './components/Navbar'
 import MusicPlayer from './components/MusicPlayer'
 import Home from './pages/Home'
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <div className="App">
+      <AnimatedBackground />
       <NavBar />
 
       <Routes>

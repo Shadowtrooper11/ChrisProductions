@@ -5,7 +5,6 @@
     align-items: center;
     min-height: calc(100vh - 5.22em);
     padding: 2em;
-    background: linear-gradient(135deg, #667eea 0%, #a572d8 100%);
 }
 
 .hero {
@@ -25,7 +24,7 @@
 }
 
 .hero-content {
-    color: rgb(39, 39, 39);
+    color: white;
     max-width: 38em;
 }
 

@@ -1,7 +1,6 @@
 .app, .App {
   min-height: 100vh;
   overflow-x: hidden;
-  background: #f5f5f5;
 }
 
 .page {
