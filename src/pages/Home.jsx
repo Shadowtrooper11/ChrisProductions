@@ -5,7 +5,7 @@ function Home() {
         <div className="home">
             <section className="hero">
                 <div className="hero-image">
-                    <img src="./hero.png" alt="Musician Icon" />
+                    <img src="./hero.png" alt="Musician Icon" className="hero-icon" />
                 </div>
 
                 <div className="hero-content">

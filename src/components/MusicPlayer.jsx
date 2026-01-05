@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from 'react'
 import './MusicPlayer.css'
 
-function MusicPlayer({ song, onClose }) {
+function MusicPlayer({ song, onClose, allSongs, onSongChange }) {
     const [isPlaying, setIsPlaying] = useState(false)
     const [currentTime, setCurrentTime] = useState(0)
     const [duration, setDuration] = useState(0)
+    const [loopMode, setLoopMode] = useState('none')
     const audioRef = useRef(null)
     const isDraggingRef = useRef(false)
     const progressBarRef = useRef(null)
@@ -23,14 +24,28 @@ function MusicPlayer({ song, onClose }) {
         const updateTime = () => setCurrentTime(audio.currentTime)
         const updateDuration = () => setDuration(audio.duration)
 
+        const handleEnded = () => {
+            if (loopMode === 'one') {
+                audio.currentTime = 0
+                audio.play()
+            } else if (loopMode === 'all') {
+                handleNext()
+            } else {
+                handleNext()
+            }
+        }
+
         audio.addEventListener('timeupdate', updateTime)
         audio.addEventListener('loadedmetadata', updateDuration)
+        audio.addEventListener('ended', handleEnded)
 
         return () => {
             audio.removeEventListener('timeupdate', updateTime)
             audio.removeEventListener('loadedmetadata', updateDuration)
+            audio.removeEventListener('ended', handleEnded)
         }
-    }, [song])
+    }, [song, loopMode])
+
     const togglePlayPause = () => {
         if (isPlaying) {
             audioRef.current.pause()
@@ -39,6 +54,28 @@ function MusicPlayer({ song, onClose }) {
         }
         setIsPlaying(!isPlaying)
     }
+
+    const handleNext = () => {
+        if (!allSongs || allSongs.length === 0) return
+        const currentIndex = allSongs.findIndex(s => s.id === song.id)
+        const nextIndex = (currentIndex + 1) % allSongs.length
+        onSongChange(allSongs[nextIndex])
+    }
+
+    const handlePrevious = () => {
+        if (!allSongs || allSongs.length === 0) return
+        const currentIndex = allSongs.findIndex(s => s.id === song.id)
+        const prevIndex = currentIndex === 0 ? allSongs.length - 1 : currentIndex - 1
+        onSongChange(allSongs[prevIndex])
+    }
+
+    const toggleLoop = () => {
+        const modes = ['none', 'one', 'all']
+        const currentIndex = modes.indexOf(loopMode)
+        const nextIndex = (currentIndex + 1) % modes.length
+        setLoopMode(modes[nextIndex])
+        }
+
 
     const formatTime = (seconds) => {
         const mins = Math.floor(seconds / 60)
@@ -90,6 +127,12 @@ function MusicPlayer({ song, onClose }) {
 
     if (!song) return null
 
+    const getLoopIcon = () => {
+        if (loopMode === 'one') return '🔂'
+        if (loopMode === 'all') return '🔁'
+        return '🔁'
+    }
+
     return (
         <div className="music-player">
             <audio ref={audioRef} src={song.url} />
@@ -115,12 +158,12 @@ function MusicPlayer({ song, onClose }) {
 
             <div className="player-controls">
                 <button className="control-btn">🔀</button>
-                <button className="control-btn">⏮</button>
+                <button className="control-btn" onClick={handlePrevious}>⏮</button>
                 <button className="control-btn play-pause" onClick={togglePlayPause}>
                     {isPlaying ? '⏸' : '▶'}
                 </button>
-                <button className="control-btn">⏭</button>
-                <button className="control-btn">🔁</button>
+                <button className="control-btn" onClick={handleNext}>⏭</button>
+                <button className={`control-btn loop-btn ${loopMode !== 'none' ? 'active' : ''}`} title={`Loop: ${loopMode}`} onClick={toggleLoop}>{getLoopIcon()}</button>
             </div>    
 
         </div>

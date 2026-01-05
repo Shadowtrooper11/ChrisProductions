@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { songs } from './data/songs'
 import AnimatedBackground from './components/AnimatedBackground'
 import NavBar from './components/Navbar'
 import MusicPlayer from './components/MusicPlayer'
@@ -19,7 +20,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/music" element={<Music onPlaySong={setCurrentSong} />} />
+        <Route path="/music" element={<Music onPlaySong={setCurrentSong} currentSong={currentSong} />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
@@ -27,6 +28,8 @@ function App() {
       <MusicPlayer
         song={currentSong}
         onClose={() => setCurrentSong(null)}
+        allSongs={songs}
+        onSongChange={setCurrentSong}
       />
     </div>
   )

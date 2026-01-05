@@ -6,7 +6,7 @@
     border-radius: 1em;
     padding: 1em;
     z-index: 1000;
-    background: rgb(66, 109, 150);
+    background: rgb(68, 68, 68);
     color: white;
     animation: slideIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55)
 }
@@ -102,7 +102,7 @@
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(90deg, #393f61 0%, #4e77ad 100%);
     transition: width 0.1s linear;
 }
 
@@ -117,19 +117,25 @@
     width: 2.3em;
     height: 2.3em;
     font-size: 1.2em;
-    background: white;
-    border: 1px solid #9094a3;
+    background: rgb(80, 80, 80);
+    border: 1px solid #383838;
+    color: white;
     border-radius: 50%;
 }
 
 .control-btn:hover {
-    background: #d0d0d0;
+    background: #838181;
     border-color: #747781;
     transform: scale(1.05);
 }
 
 .control-btn:active {
+    background: #858686;
     transform: scale(0.95);
+}
+
+.loop-btn.active {
+    background: #858686;
 }
 
 @media (max-width: 768px) {

@@ -65,6 +65,19 @@
     gap: 0.5em;
 }
 
+.song-actions {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.song-duration {
+    min-width: 3.125em;
+    font-size: 1em;
+    font-weight: 500;
+    text-align: right;
+}
+
 .play-btn-card {
     width: 3.75em;
     height: 3.75em;
