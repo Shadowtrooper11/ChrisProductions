@@ -46,6 +46,34 @@ function MusicPlayer({ song, onClose, allSongs, onSongChange }) {
         }
     }, [song, loopMode])
 
+    useEffect(() => {
+        if (!song || !audioRef.current) return
+
+        navigator.mediaSession.metadata = new MediaMetadata({
+            title: song.title,
+            artist: 'Chris Productions',
+            album: song.album || 'Unknown Album',
+            artwork: [
+                { src: song.artwork || '/hero.png', sizes: '512x512', type: 'image/png' }
+            ]
+        })
+
+        navigator.mediaSession.setActionHandler('play', () => {
+            audioRef.current.play()
+            setIsPlaying(true)
+        })
+        navigator.mediaSession.setActionHandler('pause', () => {
+            audioRef.current.pause()
+            setIsPlaying(false)
+        })
+        navigator.mediaSession.setActionHandler('previoustrack', () => {
+            handlePrevious()
+        })
+        navigator.mediaSession.setActionHandler('nexttrack', () => {
+            handleNext()
+        })
+    })
+
     const togglePlayPause = () => {
         if (isPlaying) {
             audioRef.current.pause()
